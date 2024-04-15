@@ -1,20 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import * as bcrypt from 'bcryptjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   loginFormControl = new FormControl('', [Validators.required]);
   passwordFormControl = new FormControl('', [Validators.required]);
   loginError: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
+  ngOnInit(): void {
+    const currentUserData = localStorage.getItem('currentUser');
+    if (currentUserData) {
+      try {
+        const parsedData = JSON.parse(currentUserData);
+        this.authService.setCurrentUser(parsedData);
+      } catch (error) {
+        console.error('Error parsing currentUser data:', error);
+      }
+    }
+  }
 
   validatePassword(password: any, passwordHash:any): boolean {
     return bcrypt.compareSync(password, passwordHash);
