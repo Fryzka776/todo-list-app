@@ -3,7 +3,6 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import * as bcrypt from 'bcryptjs';
-import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,18 +14,8 @@ export class LoginComponent implements OnInit{
   passwordFormControl = new FormControl('', [Validators.required]);
   loginError: boolean = false;
 
-  constructor(private router: Router, private authService: AuthService) { }
-  ngOnInit(): void {
-    const currentUserData = localStorage.getItem('currentUser');
-    if (currentUserData) {
-      try {
-        const parsedData = JSON.parse(currentUserData);
-        this.authService.setCurrentUser(parsedData);
-      } catch (error) {
-        console.error('Error parsing currentUser data:', error);
-      }
-    }
-  }
+  constructor(private router: Router) { }
+  ngOnInit(): void {}
 
   validatePassword(password: any, passwordHash:any): boolean {
     return bcrypt.compareSync(password, passwordHash);
