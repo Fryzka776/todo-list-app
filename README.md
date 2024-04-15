@@ -2,26 +2,45 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
 
-## Development server
+## Setting up the Environment
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Prerequisites:
+Node.js: Required to run Angular CLI and install project dependencies.
+Angular CLI: Tool for creating, building, and testing Angular applications.
 
-## Code scaffolding
+Steps:
+Install Node.js: Download and install the latest version of Node.js from https://nodejs.org/.
+Install Angular CLI: In the terminal, enter the following command: npm install -g @angular/cli
+Clone the Repository: Clone the project repository from GitHub or create a new project using Angular CLI.
+Install Dependencies: In the project directory, run the command: npm install
+Run the Development Server: In the terminal, enter: ng serve
+The application will be available at http://localhost:4200/.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Feature Description
 
-## Build
+The To-Do List project in Angular Material allows users to manage a list of tasks to be completed. Here is a list of available features:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+a. Adding a Task: Users can add a new task by clicking the "Add" button. Upon saving, the task is added to the list.
 
-## Running unit tests
+b. Editing a Task: Users can edit an existing task by clicking the edit button. Upon saving, the changes are applied to the task.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+c. Deleting a Task: Users can delete a task by clicking the delete button. Upon confirmation, the task is removed from the list.
 
-## Running end-to-end tests
+d. Marking a Task as Done: Users can mark a task as done by clicking the "Done" button. The task is then moved to the list of completed tasks.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+e. Task Filtering: Users can filter tasks based on their status: all, active (unfinished), or completed. The filter selection is done through a dropdown menu with available options.
 
-## Further help
+## Data
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Task data is fetched from the JSONPlaceholder server (https://jsonplaceholder.typicode.com/). Upon application startup, the data is retrieved and saved in local storage, ensuring availability even after page refresh.
+
+## Unit Testing
+
+The project includes unit tests for methods handling interaction with the JSONPlaceholder server. Tests verify the correctness of addTodo, getTodos, updateTodo, and deleteTodo methods.
+
+## User Registration
+
+Users have the option to register for a new account within the application. After selecting the appropriate option, users can provide their username and password, and then register with the system. A new user is assigned a unique ID greater than 10 to avoid ID conflicts with users from the JSONPlaceholder service.
+
+## Summary
+The To-Do List project in Angular Material is a comprehensive application for task management, built on Angular technology and the Angular Material library. With a responsive user interface, drag-and-drop task functionality, and intuitive editing, adding, and deleting features, users can effectively manage their task lists on both desktop and mobile devices.
