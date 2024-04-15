@@ -1,0 +1,90 @@
+<button mat-raised-button class="add-button" (click)="openAddModal()">Dodaj</button>
+<select [(ngModel)]="selectedOption" class="select-option">
+  <option value="all">Wszystkie</option>
+  <option value="active">Aktywne</option>
+  <option value="completed">Wykonane</option>
+</select>
+<div *ngIf="selectedOption === 'all'" class="example-container">
+  <div  class="example-list left-list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]" (cdkDropListDropped)="drop($event)">
+    <h2 class="list-header">To do</h2>
+    <mat-card *ngFor="let item of todo" cdkDrag class="task-card">
+      <mat-card-content>
+        <h3>{{ item.title }}</h3>
+      </mat-card-content>
+      <mat-card-actions class="card-actions">
+        <button mat-button color="accent" (click)="toggleTodoStatus(item)">
+          <mat-icon style="font-weight: bold; color: green;">done</mat-icon>
+        </button>
+        <button mat-button color="warn" (click)="delete(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-button color="warn" (click)="openEditModal(item)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button color="primary" (click)="openPreviewModal(item)" class="preview-button">
+          <mat-icon style="color: #333;">remove_red_eye</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="example-list right-list" cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" (cdkDropListDropped)="drop($event)">
+    <h2 class="list-header">Complete</h2>
+    <mat-card *ngFor="let item of done" cdkDrag class="task-card">
+      <mat-card-content>
+        <h3>{{ item.title }}</h3>
+      </mat-card-content>
+      <mat-card-actions class="card-actions">
+        <button mat-button color="primary" (click)="toggleTodoStatus(item)">
+          <mat-icon style="color: black;">close</mat-icon>
+        </button>
+        <button mat-button color="warn" >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<div *ngIf="selectedOption === 'active'" class="example-container">
+  <div  class="example-list left-list">
+    <h2 class="list-header">To do</h2>
+    <mat-card *ngFor="let item of todo" class="task-card">
+      <mat-card-content>
+        <h3>{{ item.title }}</h3>
+      </mat-card-content>
+      <mat-card-actions class="card-actions">
+        <button mat-button color="accent" (click)="toggleTodoStatus(item)">
+          <mat-icon style="font-weight: bold; color: green;">done</mat-icon>
+        </button>
+        <button mat-button color="warn" (click)="delete(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-button color="warn" (click)="openEditModal(item)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button color="primary" (click)="openPreviewModal(item)" class="preview-button">
+          <mat-icon style="color: #333;">remove_red_eye</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="selectedOption === 'completed'" class="example-container">
+  <div  class="example-list left-list">
+    <h2 class="list-header">Complete</h2>
+    <mat-card *ngFor="let item of done" cdkDrag class="task-card">
+      <mat-card-content>
+        <h3>{{ item.title }}</h3>
+      </mat-card-content>
+      <mat-card-actions class="card-actions">
+        <button mat-button color="primary" (click)="toggleTodoStatus(item)">
+          <mat-icon style="color: black;">close</mat-icon>
+        </button>
+        <button mat-button color="warn" >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

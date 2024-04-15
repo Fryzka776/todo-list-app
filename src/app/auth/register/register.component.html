@@ -1,0 +1,28 @@
+<div class="example-container">
+  <div class="example-list">
+    <h2 class="list-header">Rejestracja</h2>
+    <form class="modal-body" (ngSubmit)="onSubmit()">
+      <div class="col">
+        <div class="row">
+          <mat-form-field class="edit-mode">
+            <input class="input-field" matInput placeholder="Login" type="text" [formControl]="loginFormControl">
+            <mat-error *ngIf="loginFormControl.hasError('required')">Pole jest wymagane</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="edit-mode">
+            <input class="input-field" matInput placeholder="Hasło" type="password" [formControl]="passwordFormControl">
+            <mat-error *ngIf="passwordFormControl.hasError('required')">Pole jest wymagane</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="edit-mode">
+            <input class="input-field" matInput placeholder="Powtórz hasło" type="password" [formControl]="rePasswordFormControl">
+            <mat-error *ngIf="rePasswordFormControl.hasError('required')">Pole jest wymagane</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" class="login-button" type="submit">Zarejestruj</button>
+    </form>
+  </div>
+</div>

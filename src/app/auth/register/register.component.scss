@@ -1,0 +1,38 @@
+.example-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+  }
+  
+  .example-list {
+    border: 1px solid #ccc;
+    min-width: 200px;
+    width: 35%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f1f1f1;
+  }
+  
+  .list-header {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  
+  .login-button {
+    width: 100%;
+  }
+
+
+.input-field {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}

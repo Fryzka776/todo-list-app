@@ -1,0 +1,17 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h2>
+      <ng-container *ngIf="data; else addTask">Edycja zadania</ng-container>
+      <ng-template #addTask>Dodaj zadanie</ng-template>
+    </h2>
+  </div>
+  <div class="modal-body">
+    <div class="edit-mode">
+      <input *ngIf="data" matInput [(ngModel)]="data.title" placeholder="Wprowadź nazwę zadania" class="input-field" [formControl]="nameTodoFormControl">
+      <input *ngIf="!data" matInput placeholder="Wprowadź nazwę zadania" class="input-field" [formControl]="nameTodoFormControl">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button mat-button color="primary" class="button" (click)="saveChanges()">Zapisz</button>
+  </div>
+</div>

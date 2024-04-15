@@ -1,0 +1,24 @@
+<div class="example-container">
+    <div class="example-list">
+      <h2 class="list-header">Logowanie</h2>
+      <form class="login-form" (ngSubmit)="onSubmit()">
+        <div class="col">
+          <div class="row">
+            <mat-form-field class="edit-mode">
+              <input matInput class="input-field" matInput placeholder="Login" type="text" [formControl]="loginFormControl">
+              <mat-error *ngIf="loginFormControl.hasError('required')">Pole jest wymagane</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field class="edit-mode">
+              <input matInput class="input-field" matInput placeholder="Hasło" type="password" [formControl]="passwordFormControl">
+              <mat-error *ngIf="passwordFormControl.hasError('required')">Pole jest wymagane</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <button mat-raised-button color="primary" class="login-button" type="submit">Zaloguj</button>
+      </form>
+      <p class="register-link">Nie masz jeszcze konta? <a href="/register">Zarejestruj się</a></p>
+    </div>
+  </div>
+  

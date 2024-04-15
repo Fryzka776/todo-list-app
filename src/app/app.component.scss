@@ -1,0 +1,25 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .wrapper {
+    min-height: calc(100vh - 40px); /* Wysokość ekranu minus wysokość paska */
+    margin-bottom: -40px; /* Wysokość paska */
+  }
+  
+  .main-content {
+    padding-bottom: 40px; /* Wysokość paska */
+  }
+  
+  .app-footer {
+    height: 40px; /* Wysokość paska */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  

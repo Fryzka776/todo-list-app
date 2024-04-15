@@ -1,0 +1,10 @@
+<mat-toolbar class="header">
+    <span class="title">To Do List</span>
+    <span class="spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Wyloguj</button>
+    </mat-menu>
+  </mat-toolbar>
