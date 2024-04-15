@@ -16,6 +16,12 @@ Install Dependencies: In the project directory, run the command: npm install
 Run the Development Server: In the terminal, enter: ng serve
 The application will be available at http://localhost:4200/.
 
+## Login Data
+
+To access the full functionality of the application, users are required to log in using the following credentials:
+Username: test
+Password: test123
+
 ## Feature Description
 
 The To-Do List project in Angular Material allows users to manage a list of tasks to be completed. Here is a list of available features:
